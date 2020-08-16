@@ -2,6 +2,9 @@ import requests
 import json
 from . import keys
 
+
+#TODO clean up code
+
 class Api(object):
     """Google Books Api
     
@@ -14,14 +17,16 @@ class Api(object):
     def _get(self, path, params=None):
         if params is None:
             params = {}
+        print(params)
         resp = requests.get(self.__BASEURL+path+'&key='+keys.GbooksKEY, params=params)
         if resp.status_code == 200:
             json_resp = json.loads(resp.content)
+            return str(json_resp)
              # Local curl request tested at endpoint, connection verified.
              #TODO complete and test out json response object,and ens
 
-            json_resp = json_resp["items"]
-            return json.loads(resp.content)
+            # json_resp = json_resp["items"]
+            # return json.loads(resp.content)
 
         return resp
 
