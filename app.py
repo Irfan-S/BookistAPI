@@ -1,14 +1,13 @@
 from typing import List
 import requests
 import json
-from . import keys
+from .keys import keys
 from requests.auth import HTTPBasicAuth
 
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 
 from . import crud, models, schemas
-from . import gbooksapi
 from fastapi.responses import JSONResponse
 from .database import SessionLocal, engine
 
