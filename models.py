@@ -21,7 +21,6 @@ class User(Base):
 
     books = relationship("Book", back_populates="owner")
 
-
 class Book(Base):
     __tablename__ = "books"
 

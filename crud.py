@@ -27,7 +27,6 @@ def create_user(db: Session, user: schemas.UserCreate):
 def get_books(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.Book).offset(skip).limit(limit).all()
 
-
 def create_user_book(db: Session, book: schemas.BookCreate, user_id: int):
     db_book = models.Book(**book.dict(), owner_id=user_id)
     db.add(db_book)
